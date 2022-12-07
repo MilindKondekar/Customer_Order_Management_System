@@ -1,0 +1,26 @@
+package com.cs.restapi.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cs.restapi.entity.Customer;
+import com.cs.restapi.entity.Orders;
+import com.cs.restapi.repository.OrderRepo;
+
+@RestController
+@RequestMapping("/orders")
+public class OrderController {
+
+	@Autowired
+	private OrderRepo orderRepo;
+	
+	@GetMapping("/get")
+	public List<Orders> getOrder()
+	{
+		return orderRepo.findAll();
+	}
+}

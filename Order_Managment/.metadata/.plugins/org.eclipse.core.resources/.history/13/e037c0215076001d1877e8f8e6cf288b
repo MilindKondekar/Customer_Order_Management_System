@@ -1,0 +1,61 @@
+package com.cs.restapi.entity;
+
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name = "Customer_Tbl")
+
+public class Orders 
+{
+	@Id
+    @GeneratedValue
+	private long id;
+	private int orderprice;
+	
+	//@ManyToMany(mappedBy = "orders",fetch = FetchType.LAZY)
+	private Set<Customer> customer;
+
+	public Orders()
+	{
+		
+	}
+	public Orders(int orderprice, Set<Customer> customer) {
+		super();
+		this.orderprice = orderprice;
+		this.customer = customer;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public int getOrderprice() {
+		return orderprice;
+	}
+	public void setOrderprice(int orderprice) {
+		this.orderprice = orderprice;
+	}
+	public Set<Customer> getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Set<Customer> customer) {
+		this.customer = customer;
+	}
+
+	
+	
+	
+}

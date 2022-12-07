@@ -1,0 +1,22 @@
+package com.cs.restapi.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cs.restapi.repository.CustomerRepo;
+import com.cs.restapi.repository.OrderRepo;
+
+@RestController
+@RequestMapping("/customer/order")
+public class CustomerOrderController {
+
+
+	@Autowired
+	private OrderRepo orderRepo;
+
+	@Autowired
+	private CustomerRepo customerRepo;
+	
+	
+}
